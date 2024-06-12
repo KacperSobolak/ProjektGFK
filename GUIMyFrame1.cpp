@@ -1,31 +1,31 @@
 #include "GUIMyFrame1.h"
 
-GUIMyFrame1::GUIMyFrame1( wxWindow* parent )
-:
-MyFrame1( parent )
+GUIMyFrame1::GUIMyFrame1(wxWindow* parent)
+    :
+    MyFrame1(parent)
 {
     _penColor = *wxBLACK;
     _fillColor = *wxWHITE;
     _penSize = 2;
 }
 
-void GUIMyFrame1::loadFileOnButtonClick( wxCommandEvent& event )
+void GUIMyFrame1::loadFileOnButtonClick(wxCommandEvent& event)
 {
-wxTextFile file;
-wxFileDialog WxOpenFileDialog1(this, _("Choose a file"), _(""), _(""), _("*.*"), wxFD_OPEN);
-WxOpenFileDialog1.SetWildcard("TXT files (*.txt)|*.txt");
-if (WxOpenFileDialog1.ShowModal() == wxID_OK)
-{
-_filename = WxOpenFileDialog1.GetPath();
+    wxTextFile file;
+    wxFileDialog WxOpenFileDialog1(this, _("Choose a file"), _(""), _(""), _("*.*"), wxFD_OPEN);
+    WxOpenFileDialog1.SetWildcard("TXT files (*.txt)|*.txt");
+    if (WxOpenFileDialog1.ShowModal() == wxID_OK)
+    {
+        _filename = WxOpenFileDialog1.GetPath();
 
-if (!file.Open(_filename))
-wxLogError(_("Can't load this file"));
-}
+        if (!file.Open(_filename))
+            wxLogError(_("Can't load this file"));
+    }
 }
 
-void GUIMyFrame1::startAnimOnButtonClick( wxCommandEvent& event )
+void GUIMyFrame1::startAnimOnButtonClick(wxCommandEvent& event)
 {
-FileParser(std::string(_filename.mb_str()));
+    FileParser(std::string(_filename.mb_str()));
 }
 
 
@@ -52,7 +52,7 @@ void GUIMyFrame1::DrawLine(int x1, int y1, int x2, int y2)
     dc.DrawLine(x1, y1, x2, y2);
 }
 
-void GUIMyFrame1::FileParser(const std::string& filename) 
+void GUIMyFrame1::FileParser(const std::string& filename)
 {
     std::ifstream file(filename);
     int width, height, FrameNmbr, FrameTime;
@@ -65,6 +65,7 @@ void GUIMyFrame1::FileParser(const std::string& filename)
         //std::cout << "\nNext Frame: " << FrameNmbr << " with time: " << FrameTime << " ms" << std::endl;
         file >> std::ws;
         float a, b, c, d, thickness;
+        std::string style, path;
         bool flag = false;
         while (file >> command) {
             if (command == "stop" || command == "ST")
@@ -106,6 +107,23 @@ void GUIMyFrame1::FileParser(const std::string& filename)
                 _fillColor = wxColour(int(a), int(b), int(c));
                 //std::cout << "Changing Fill colour to (" << a << ", " << b << ", " << c << ")" << std::endl;
             }
+            else if (command == "luk" || command == "LK") {
+                file >> a >> comma >> b >> comma >> c >> comma >> d >> flag;
+                DrawElipse(int(a), int(b), int(c), int(d), int(flag));
+                //std::cout << "Drawing elipse: " << "(" << a << ", " << b << ") " << "(" << c << " " << d << ")"
+                    //" Wypelnienie: " << flag << std::endl;
+            }
+            else if (command == "styl_wypelnienia" || command == "SW") {
+                file >> style;
+                SetBrushStyle(style);
+                //std::cout << "Drawing elipse: " << "(" << a << ", " << b << ") " << "(" << c << " " << d << ")"
+                    //" Wypelnienie: " << flag << std::endl;
+            }
+            else if (command == "wczytaj_zdjecie" || command == "WZ") {
+                file >> path >> a >> b;
+                DrawImage(path, a, b);
+
+            }
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(FrameTime));
         if (saveAnim->IsChecked()) {
@@ -124,7 +142,7 @@ void GUIMyFrame1::Repaint()
     dc.SetBackground(wxColor(255, 255, 255));
 }
 
-void GUIMyFrame1::SaveClientDCToBitmap(wxString filename) 
+void GUIMyFrame1::SaveClientDCToBitmap(wxString filename)
 {
     wxClientDC dc(panel);
     wxSize size = panel->GetSize();
@@ -142,7 +160,14 @@ void GUIMyFrame1::SaveClientDCToBitmap(wxString filename)
     // Deselect the bitmap from the memory DC
     memDC.SelectObject(wxNullBitmap);
     // Save the bitmap to disk
-    bitmap.SaveFile(filename+".bmp", wxBITMAP_TYPE_BMP);
+    bitmap.SaveFile(filename + ".bmp", wxBITMAP_TYPE_BMP);
+}
+
+std::string GUIMyFrame1::StringToLowerCase(std::string string)
+{
+    std::transform(string.begin(), string.end(), string.begin(),
+        [](unsigned char c) { return std::tolower(c); });
+    return string;
 }
 
 void GUIMyFrame1::DrawElipse(int x1, int y1, int x2, int y2, int flag)
@@ -167,6 +192,36 @@ void GUIMyFrame1::DrawPoint(int x, int y)
     dc.SetPen(wxPen(_penColor, _penSize));
     dc.DrawPoint(x, y);
 }
+
+void GUIMyFrame1::DrawArc(int x1, int y1, int x2, int y2, int x, int y)
+{
+    wxClientDC dc(panel);
+    dc.SetBrush(wxBrush(_fillColor));
+    dc.SetPen(wxPen(_penColor, _penSize));
+    dc.DrawArc(x1, y1, x2, y1, x, y);
+}
+
+void GUIMyFrame1::SetBrushStyle(std::string style)
+{
+    style = StringToLowerCase(style);
+    if (style == "solid") {
+        _brushStyle = wxBRUSHSTYLE_SOLID;
+    }
+    else if (style == "stipple") {
+        _brushStyle = wxBRUSHSTYLE_CROSS_HATCH;
+    }
+}
+
+void GUIMyFrame1::DrawImage(std::string path, int x, int y)
+{
+    wxClientDC dc(panel);
+    wxBitmap bitmap;
+    if (bitmap.LoadFile(path + ".png"), wxBITMAP_TYPE_PNG) {
+        //    dc.DrawBitmap(bitmap, x, y);
+    }
+    saveAnim->SetValue(true);
+}
+
 
 void GUIMyFrame1::SetPanelSize(int width, int height)
 {

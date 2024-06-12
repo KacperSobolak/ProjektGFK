@@ -1,26 +1,251 @@
 800, 600
-001, 1000
-punkt 100, 100
-linia 100, 100, 200, 200
-prostokat 150, 150, 300, 300 0
-kolor_piora 255 0 0
+001, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 0 0
+elipsa 50, 550, 100, 600 1
+stop
+002, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 165 0
+elipsa 70, 530, 120, 580 1
+stop
+003, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 255 0
+elipsa 90, 510, 130, 560 1
+stop
+004, 100
+kolor_piora 0 0 0
 kolor_wypelnienia 0 255 0
-elipsa 400, 300, 450, 350 1
-rozmiar_piora 5
+elipsa 110, 490, 140, 540 1
 stop
-002, 1000
-punkt 200 200
-linia 200 200 300 300
-prostokat 250 250 400 400 0
-kolor_piora 0 0 255
-kolor_wypelnienia 255 255 0
-elipsa 500 400 550 450 1
-rozmiar_piora 3
+005, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 0 255
+elipsa 130, 470, 150, 520 1
 stop
-003, 500
-punkt 220 200
-linia 200 200 300 300
-prostokat 250 250 400 400 1
-kolor_wypelnienia 255 255 0
-elipsa 510 400 550 450 1
+006, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 75 0 130
+elipsa 150, 450, 160, 500 1
+stop
+007, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 238 130 238
+elipsa 170, 430, 170, 480 1
+stop
+008, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 0 255
+elipsa 190, 410, 180, 460 1
+stop
+009, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 255 255
+elipsa 210, 390, 190, 440 1
+stop
+010, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 192 203
+elipsa 230, 370, 200, 420 1
+stop
+011, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 128 128
+elipsa 250, 350, 210, 400 1
+stop
+012, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 128 0
+elipsa 270, 330, 220, 380 1
+stop
+013, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 0
+elipsa 290, 310, 230, 360 1
+stop
+014, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 0 128
+elipsa 310, 290, 240, 340 1
+stop
+015, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 128
+elipsa 330, 270, 250, 320 1
+stop
+016, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 215 0
+elipsa 350, 250, 260, 300 1
+stop
+017, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 69 0
+elipsa 370, 230, 270, 280 1
+stop
+018, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 173 216 230
+elipsa 390, 210, 280, 260 1
+stop
+019, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 135 206 235
+elipsa 410, 190, 290, 240 1
+stop
+020, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 228 225
+elipsa 430, 170, 300, 220 1
+stop
+021, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 106 90 205
+elipsa 450, 150, 310, 200 1
+stop
+022, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 72 61 139
+elipsa 470, 130, 320, 180 1
+stop
+023, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 75 0 130
+elipsa 490, 110, 330, 160 1
+stop
+024, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 238 130 238
+elipsa 510, 90, 340, 140 1
+stop
+025, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 0 255
+elipsa 530, 70, 350, 120 1
+stop
+026, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 255 255
+elipsa 550, 50, 360, 100 1
+stop
+027, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 192 203
+elipsa 570, 70, 370, 120 1
+stop
+028, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 128 128
+elipsa 590, 90, 380, 140 1
+stop
+029, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 128 0
+elipsa 610, 110, 390, 160 1
+stop
+030, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 0
+elipsa 630, 130, 400, 180 1
+stop
+031, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 0 128
+elipsa 650, 150, 410, 200 1
+stop
+032, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 128
+elipsa 670, 170, 420, 220 1
+stop
+033, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 215 0
+elipsa 690, 190, 430, 240 1
+stop
+034, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 69 0
+elipsa 710, 210, 440, 260 1
+stop
+035, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 173 216 230
+elipsa 730, 230, 450, 280 1
+stop
+036, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 135 206 235
+elipsa 750, 250, 460, 300 1
+stop
+037, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 228 225
+elipsa 730, 270, 470, 320 1
+stop
+038, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 106 90 205
+elipsa 710, 290, 480, 340 1
+stop
+039, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 72 61 139
+elipsa 690, 310, 490, 360 1
+stop
+040, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 75 0 130
+elipsa 670, 330, 500, 380 1
+stop
+041, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 238 130 238
+elipsa 650, 350, 510, 400 1
+stop
+042, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 0 255
+elipsa 630, 370, 520, 420 1
+stop
+043, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 255 255
+elipsa 610, 390, 530, 440 1
+stop
+044, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 192 203
+elipsa 590, 410, 540, 460 1
+stop
+045, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 128 128
+elipsa 570, 430, 550, 480 1
+stop
+046, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 128 0
+elipsa 550, 450, 560, 500 1
+stop
+047, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 0
+elipsa 530, 470, 570, 520 1
+stop
+048, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 0 0 128
+elipsa 510, 490, 580, 540 1
+stop
+049, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 128 0 128
+elipsa 490, 510, 590, 560 1
+stop
+050, 100
+kolor_piora 0 0 0
+kolor_wypelnienia 255 215 0
+elipsa 470, 530, 600, 580 1
 stop
